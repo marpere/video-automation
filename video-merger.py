@@ -149,8 +149,8 @@ def main():
     for v in video_parts:
         print(f"  - {v}")
     
-    # Concatenate videos
-    output_video = f"{video_number}.mp4"
+    # Create output paths in the same directory as the video parts
+    output_video = os.path.join(directory, f"{video_number}.mp4")
     print(f"\nConcatenating videos to {output_video}...")
     concatenate_videos(video_parts, output_video)
     
@@ -160,7 +160,7 @@ def main():
         for s in subtitle_parts:
             print(f"  - {s}")
         
-        output_subtitle = f"{video_number}.srt"
+        output_subtitle = os.path.join(directory, f"{video_number}.srt")
         print(f"\nConcatenating subtitles to {output_subtitle}...")
         concatenate_subtitles(subtitle_parts, video_parts, output_subtitle)
     else:
